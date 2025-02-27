@@ -13,7 +13,6 @@ GrandHotel Management API is a hotel management system built with **Spring Boot*
 - **Authentication**: Spring Security + JWT
 - **Testing**: JUnit, Mockito, Postman
 - **Dependency Management**: Maven
-- **CI/CD**: GitHub Actions (optional)
 
 ---
 
