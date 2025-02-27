@@ -4,6 +4,7 @@ package com.msiwy.GrandHotel.utils;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
+import jakarta.annotation.PostConstruct;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Value;
@@ -23,13 +24,14 @@ public class JWTUtils {
     @Value("${jwt.secret-key}")
     private String jwtSecret;
 
-    private final SecretKey Key;
+    private SecretKey Key;
 
-    public JWTUtils() {
-        String secretString = jwtSecret;
-        byte[] keyBytes = Base64.getDecoder().decode(secretString.getBytes(StandardCharsets.UTF_8));
+    @PostConstruct
+    public void init() {
+        byte[] keyBytes = Base64.getDecoder().decode(jwtSecret.getBytes(StandardCharsets.UTF_8));
         this.Key = new SecretKeySpec(keyBytes, "HmacSHA256");
     }
+
 
     public String generateToken(UserDetails userDetails){
         return Jwts.builder()
