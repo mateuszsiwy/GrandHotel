@@ -12,7 +12,7 @@ GrandHotel Management API is a hotel management system built with **Spring Boot*
 - **Cloud Storage**: AWS S3 (for room images)
 - **Authentication**: Spring Security + JWT
 - **Testing**: JUnit, Mockito, Postman
-- **Dependency Management**: Maven
+- **Dependency Management**: Maven 
 
 ---
 
